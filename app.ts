@@ -23,14 +23,15 @@ function startApp(){
         console.log("4. Exit");
 
         const choice = readline.question("Choose an option (1-4): ");
+        let name: string, price: number, stock: number;
         switch(choice){
             case "1":
                 displayInventory();
                 break;
             case "2":
-                const name = readline.question("Enter name: ");
-                const price = parseFloat(readline.question("Enter price: "));
-                const stock = parseInt(readline.question("Enter stock: "));
+                name = readline.question("Enter name: ");
+                price = parseFloat(readline.question("Enter price: "));
+                stock = parseInt(readline.question("Enter stock: "));
 
                 if(!name || isNaN(price) || isNaN(stock)){
                     console.log("invalid inputs");
@@ -39,6 +40,14 @@ function startApp(){
                 addProduct(name, price, stock);
                 break;
             case "3":
+                const id = parseInt(readline.question("Enter product id to update: "));
+                stock = parseInt(readline.question("Enter new stock"));
+
+                if(!id || isNaN(stock)){
+                    console.log("invalid inputs");
+                } else {
+                    updateStock(id, stock);
+                }
                 break;
             case "4":
                 console.log("Exiting");
