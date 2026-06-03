@@ -19,7 +19,18 @@ function displayInventory(): void{
     console.log("===========================");
 }
 
-function addProduct(newProduct: Product): void{
+function addProduct(name: string, price: number, stock: number): void{
+    const totalItems = inventory.length;
+    const lastProduct = totalItems > 0 ? inventory[totalItems - 1] : null;
+    const lastProductId = lastProduct ? lastProduct.id : 0;
+    const newProductId = lastProductId + 1;
+
+    const newProduct: Product = {
+        name,
+        price,
+        stock,
+        id: newProductId
+    }
     inventory.push(newProduct);
 }
 
