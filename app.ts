@@ -41,7 +41,7 @@ function startApp(){
                 break;
             case "3":
                 const id = parseInt(readline.question("Enter product id to update: "));
-                stock = parseInt(readline.question("Enter new stock"));
+                stock = parseInt(readline.question("Enter new stock: "));
 
                 if(!id || isNaN(stock)){
                     console.log("invalid inputs");
@@ -55,6 +55,11 @@ function startApp(){
                 break;
             default:
                 break;
+        }
+
+        if(running){
+            readline.question("\n\nPress Enter to return to the menu");
+            console.clear();
         }
     }
 }
