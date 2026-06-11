@@ -1,5 +1,5 @@
 import type { Product } from "../models/product.interface.js";
-import { ProductRepository } from "../repositories/product.repository.js";
+import { ProductRepository } from "../repositories/product.repository.ts";
 
 
 export class ProductService {
@@ -7,6 +7,10 @@ export class ProductService {
 
     getAllProducts(): Product[] {
         return this.repo.findAll();
+    }
+
+    getProductById(id: number): Product | undefined {
+        return this.repo.findById(id);
     }
 
     addNewProduct(id: number, name: string, price: number, stock: number) {
